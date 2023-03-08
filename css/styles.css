@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+html {
+  font-size: 62.5%;
+}
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #2d3436;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #2d3436;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 2rem 10%;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+.header .logo {
+  margin-right: auto;
+  font-size: 2.3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ecf0f1;
+}
+.header .logo span {
+  background-color: #60a3bc;
+  color: #2d3436;
+  font-size: 2.8rem;
+  font-weight: 600;
+  padding: 0 0.7rem;
+  margin-left: 0.2rem;
+  border-radius: 0.2rem;
+}
+.header .navbar a {
+  margin-right: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #ecf0f1;
+}
+.header .navbar a:hover {
+  color: #60a3bc;
+}
+.header .icons div {
+  position: relative;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: #60a3bc;
+  margin-left: 2.5rem;
+  z-index: 1001;
+}
+.header .icons div:hover {
+  color: #ecf0f1;
+}
+.header #open-menu-btn,
+.header #close-menu-btn {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 2rem 5%;
+  }
+}
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    padding: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .header #open-menu-btn {
+    display: inline-block;
+  }
+  .header #open-menu-btn.hide-menu-btn {
+    display: none;
+  }
+  .header #close-menu-btn {
+    display: none;
+  }
+  .header #close-menu-btn.show-menu-btn {
+    display: inline-block;
+  }
+  .header .navbar {
+    position: fixed;
+    top: 0;
+    right: -105%;
+    width: 30rem;
+    background-color: #2d3436;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header .navbar.show-menu {
+    right: 0;
+  }
+  .header .navbar a {
+    display: block;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}/*# sourceMappingURL=styles.css.map */

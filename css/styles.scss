@@ -1,0 +1,193 @@
+// -------------Global-------------
+
+// -----Font-----
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+// -----Reset-----
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+// -----Variables-----
+$dark: #2d3436;
+$light: #ecf0f1;
+$black: #000000;
+$white: #ffffff;
+$red: #e55039;
+$blue: #60a3bc;
+$border: 0.2rem solid $dark;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+// -----Re-usables-----
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+@mixin titleText($textSize, $textColor, $textWeight, $textTransform) {
+  font-size: $textSize;
+  font-weight: $textWeight;
+  text-transform: $textTransform;
+  color: $textColor;
+}
+
+@mixin paragraphText($textSize) {
+  font-size: $textSize;
+  line-height: 2;
+  color: $dark;
+}
+
+// -----Root-----
+html {
+  font-size: 62.5%;
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $dark;
+  }
+}
+
+// -----Header-----
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $dark;
+  box-shadow: $box-shadow;
+  padding: 2rem 10%;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+
+  // Logo
+  .logo {
+    margin-right: auto;
+    @include titleText(2.3rem, $light, 400, uppercase);
+
+    span {
+      background-color: $blue;
+      color: $dark;
+      font-size: 2.8rem;
+      font-weight: 600;
+      padding: 0 0.7rem;
+      margin-left: 0.2rem;
+      border-radius: 0.2rem;
+    }
+  }
+
+  // Navbar
+  .navbar {
+    a {
+      margin-right: 2.5rem;
+      @include titleText(1.5rem, $light, 400, capitalize);
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  // Icons
+  .icons div {
+    position: relative;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: $blue;
+    margin-left: 2.5rem;
+    z-index: 1001;
+
+    &:hover {
+      color: $light;
+    }
+  }
+
+  #open-menu-btn,
+  #close-menu-btn {
+    display: none;
+  }
+}
+
+// -------------Media queries-------------
+@media (max-width: 1200px) {
+  // -----Header-----
+  .header {
+    padding: 2rem 5%;
+  }
+}
+
+@media (max-width: 991px) {
+  // -----Root-----
+  html {
+    font-size: 55%;
+  }
+
+  // -----Header-----
+  .header {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  // -----Header-----
+  .header {
+    #open-menu-btn {
+      display: inline-block;
+
+      &.hide-menu-btn {
+        display: none;
+      }
+    }
+
+    #close-menu-btn {
+      display: none;
+      &.show-menu-btn {
+        display: inline-block;
+      }
+    }
+
+    // Navbar
+    .navbar {
+      position: fixed;
+      top: 0;
+      right: -105%;
+      width: 30rem;
+      background-color: $dark;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &.show-menu {
+        right: 0;
+      }
+
+      a {
+        display: block;
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  // -----Root-----
+  html {
+    font-size: 50%;
+  }
+}
